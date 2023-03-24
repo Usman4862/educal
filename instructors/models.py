@@ -1,7 +1,7 @@
 from django.db import models
 from users.models import User
 
-class InstructorDetail(models.Model):
+class Instructor(models.Model):
     class Degree(models.TextChoices):
         BAM = "BAM",("Business Administration and Management"),
         HPR = "HPR",("Health Professions and Related Programs"),
@@ -12,11 +12,11 @@ class InstructorDetail(models.Model):
         PSST = "PSST", ("Physical Sciences and Science Technologies"),
 
 
-    user = models.OneToOneField(User, verbose_name="Instructor", on_delete=models.CASCADE, null=False, blank=False)
+    user = models.OneToOneField(User, verbose_name="User", on_delete=models.CASCADE, null=False, blank=False)
     degree = models.CharField(max_length=100, choices=Degree.choices)
-    vacancy = models.CharField(max_length=50, null=False, blank=False)
+    designation = models.CharField(max_length=50, null=False, blank=False)
     short_bio = models.TextField(max_length=300, null=True, blank=True)
-    course = models.ForeignKey("courses.CourseDetail", on_delete=models.PROTECT)
     # reviews = models.reveiew() under disscussion
 
-
+    def __str__(self):
+        return self.user.get_full_name()

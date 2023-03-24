@@ -62,14 +62,9 @@ DATABASES = {
         'PASSWORD': 'malik333',
         'HOST': 'localhost',
         'PORT': '5432',
-    }
+    },
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': 'educaldb',
-#     }
-# }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
