@@ -19,3 +19,6 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ["gender"]
 
     objects = CustomUserManager()
+
+    def __str__(self) -> str:
+        return self.email

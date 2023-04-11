@@ -38,3 +38,6 @@ class Lesson(models.Model):
     lesson_type = models.CharField(max_length=50, choices=TypeChoice.choices, null=True, blank=True)
     order_number = models.PositiveIntegerField(null=True)
     module = models.ForeignKey(to=Module, related_name="lessons", on_delete=models.PROTECT)
+
+    def __str__(self) -> str:
+        return f"{self.link} - {self.order_number}"
